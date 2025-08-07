@@ -1,0 +1,27 @@
+.main-container {
+  align-items: center;
+  padding-top: 5rem;
+
+  & header {
+    width: 80%;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+}
+
+.main {
+  width: 80%;
+}
+
+.tips {
+  & svg {
+    & path {
+      stroke: var(--content-brand);
+    }
+  }
+  & .tips-texts {
+    & .paragraph-md {
+      color: var(--content-brand);
+    }
+  }
+}

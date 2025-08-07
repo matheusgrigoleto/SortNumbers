@@ -1,0 +1,84 @@
+.display-lg {
+  font: 800 var(--display-lg) / 1.3 var(--ff-display);
+  text-transform: uppercase;
+}
+
+.display-md {
+  font: 800 var(--display-md) / 1.3 var(--ff-display);
+  text-transform: uppercase;
+}
+
+.display-sm {
+  font: 700 var(--display-sm) / 1.3 var(--ff-display);
+  text-transform: uppercase;
+}
+
+.display-xs {
+  font: 800 var(--display-xs) / 1.3 var(--ff-display);
+  text-transform: uppercase;
+}
+
+.overline {
+  font: 700 var(--paragraph-lg) / 1.5 var(--ff-overline);
+  text-transform: uppercase;
+  background: var(--gradient-content);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.paragraph-lg {
+  font: 500 var(--paragraph-lg) / 1.5 var(--font-family);
+}
+
+.paragraph-md {
+  font: 500 var(--paragraph-md) / 1.5 var(--font-family);
+}
+
+.paragraph-sm {
+  font: 500 var(--paragraph-sm) / 1.5 var(--font-family);
+}
+
+.label-md {
+  font: 700 var(--label-md) / 1.5 var(--font-family);
+}
+
+.label-sm {
+  font: 700 var(--label-sm) / 1.5 var(--font-family);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.gap-1\.5 {
+  gap: 1.5rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-0\.5 {
+  gap: 0.5rem;
+}
+
+.grid {
+  display: grid;
+}
