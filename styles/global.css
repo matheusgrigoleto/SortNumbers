@@ -29,9 +29,15 @@
   --accent-red: #e9a9b3;
 
   /* GRADIENT */
-  --gradient-border: #77c0af 0%, #d1dc97 14.84%, #e9a9b3 32.15%, #d586e0 65.79%,
-    #91a1fa 84.58%;
-  --gradient-background: #d586e0 0%, #91a1fa 98.93%;
+   --gradient-border: linear-gradient(
+    90deg,
+    #77c0af 0%,
+    #d1dc97 14.84%,
+    #e9a9b3 32.15%,
+    #d586e0 65.79%,
+    #91a1fa 84.58%
+  );
+  --gradient-background: linear-gradient(90deg, #d586e0 0%, #91a1fa 98.93%);
   --gradient-content: linear-gradient(to right, #D9D9D9 0%, #3d3d3d 100%);
 
   /* FONT */

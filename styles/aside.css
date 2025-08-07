@@ -1,0 +1,208 @@
+.aside-container {
+  align-items: center;
+  justify-content: center;
+
+  & .header-aside {
+    width: 80%;
+
+    & h1 {
+      color: var(--content-primary);
+      text-transform: uppercase;
+    }
+
+    & p {
+      width: 101%;
+      color: var(--content-secondary);
+    }
+  }
+
+  & .sort {
+    width: 80%;
+
+    & label {
+      color: var(--content-secondary);
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .border {
+      padding: 1px;
+      border-radius: 8px;
+      background: transparent;
+    }
+
+    & .sort-numbers:hover .border,
+    .sort-numbers:focus-within .border {
+      background: var(--gradient-border);
+    }
+
+    & .sort-numbers:hover label,
+    .sort-numbers:focus-within label {
+      color: var(--background-brand);
+    }
+
+    & .input-sort {
+      width: 6rem;
+      height: 3.5rem;
+      padding: 0.5rem;
+      text-align: center;
+      color: var(--content-primary);
+      background-color: var(--background-secondary);
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: var(--background-tertiary);
+      }
+    }
+  }
+
+  & .toggle-group {
+    width: 80%;
+
+    & .toggle-checkbox {
+      display: none;
+    }
+
+    & .toggle-btn {
+      width: 1.875rem;
+      height: 1.25rem;
+      background-color: var(--content-tertiary);
+      border: none;
+      border-radius: 1rem;
+      position: relative;
+      cursor: pointer;
+      padding: 3px 3px;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+
+    & .toggle-btn::before {
+      content: "";
+      position: absolute;
+      top: 2.55px;
+      left: 4px;
+      width: 0.875rem;
+      height: 0.875rem;
+      background-color: var(--content-primary);
+      border-radius: 50%;
+      transition: transform 0.3s;
+      transform: translateX(0);
+    }
+
+    & .toggle-checkbox:checked + .toggle-btn::before {
+      transform: translateX(0.55rem);
+    }
+
+    & .toggle-checkbox:checked + .toggle-btn {
+      background: var(--gradient-background);
+    }
+
+    & .toggle-label {
+      color: var(--content-primary);
+    }
+  }
+
+  & .btn-sort {
+    width: 80%;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    border-radius: 0.5rem;
+    padding: 0.7rem 0.7rem;
+    background: var(--background-tertiary);
+   
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 0.5rem;
+      background: var(--gradient-border);
+      z-index: -1;
+      opacity: 0;
+    }
+
+    &:hover::before {
+      animation: flashBorder 1.5s ease-in-out forwards;
+    }
+
+    &:hover img {
+      animation: slideArrow 1.5s ease-in-out forwards;
+    }
+
+    & span {
+      color: var(--content-primary);
+    }
+
+
+    &:hover {
+      animation: flashBg 1.5s ease forwards;
+    }
+  }
+}
+
+@keyframes flashBorder {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideArrow {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(7px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  70% {
+    transform: translateX(7px);
+  }
+  85% {
+    transform: translateX(5px);
+  }
+  95% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes flashBg {
+  0% {
+    background: var(--background-tertiary);
+  }
+  50% {
+    background: var(--background-secondary);
+  }
+  98% {
+    background: var(--background-secondary);
+  }
+  100% {
+    background: var(--background-tertiary);
+  }
+}

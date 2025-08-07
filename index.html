@@ -122,7 +122,49 @@
           </div>
         </div>
       </div>
-      <div class="aside"><h1>TESTE2</h1></div>
+      <div class="aside-container flex flex-col gap-2">
+        <div class="header-aside">
+          <h1 class="label-md">Quero Sortear:</h1>
+          <p class="paragraph-lg">
+            defina o intervalo e a quantidade de números, clique em "Sortear"
+            veja os resultados na tela. É rápido e fácil!
+          </p>
+        </div>
+
+        <div class="sort flex gap-2">
+          <div class="sort-numbers flex flex-col gap-0.5">
+            <label class="label-md" for="number">Números</label>
+            <div class="border">
+              <input id="number" class="input-sort display-sm" />
+            </div>
+          </div>
+          <div class="sort-numbers flex flex-col gap-0.5">
+            <label class="label-md" for="first-number">De</label>
+            <div class="border">
+              <input id="first-number" class="input-sort display-sm" />
+            </div>
+          </div>
+          <div class="sort-numbers flex flex-col gap-0.5">
+            <label class="label-md" for="secondary-number">Até</label>
+            <div class="border">
+              <input id="secondary-number" class="input-sort display-sm" />
+            </div>
+          </div>
+        </div>
+
+        <label class="toggle-group flex gap-0.5 flex-aling-center">
+          <input type="checkbox" class="toggle-checkbox" id="toggleRepeat" />
+          <span class="toggle-btn"></span>
+          <span class="toggle-label paragraph-md">Não repetir número</span>
+        </label>
+
+        <button
+          class="btn-sort flex gap-0.5 flex-aling-center flex-justify-center"
+        >
+          <span class="label-md">Sortear</span>
+          <img src="./img/icons/arrow.svg" alt="" />
+        </button>
+      </div>
     </div>
   </body>
 </html>

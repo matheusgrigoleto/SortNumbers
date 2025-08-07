@@ -7,21 +7,22 @@
     align-items: center;
     padding-bottom: 2rem;
   }
-}
 
-.main {
-  width: 80%;
-}
+  & .main {
+    width: 80%;
 
-.tips {
-  & svg {
-    & path {
-      stroke: var(--content-brand);
-    }
-  }
-  & .tips-texts {
-    & .paragraph-md {
-      color: var(--content-brand);
+    & .tips {
+      width: 70%;
+      & svg {
+        & path {
+          stroke: var(--content-brand);
+        }
+      }
+      & .tips-texts {
+        & .paragraph-md {
+          color: var(--content-brand);
+        }
+      }
     }
   }
 }
