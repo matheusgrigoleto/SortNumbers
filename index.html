@@ -25,7 +25,7 @@
             <h1 class="display-lg">Sorteador de números</h1>
           </div>
 
-          <div class="flex gap-1 flex-col">
+          <div class="tips-container flex gap-1 flex-col">
             <div class="tips flex gap-0.5 flex-aling-center">
               <svg
                 width="32.7"
@@ -126,7 +126,7 @@
         <div class="header-aside">
           <h1 class="label-md">Quero Sortear:</h1>
           <p class="paragraph-lg">
-            defina o intervalo e a quantidade de números, clique em "Sortear"
+            Defina o intervalo e a quantidade de números, clique em "Sortear" e
             veja os resultados na tela. É rápido e fácil!
           </p>
         </div>
@@ -135,19 +135,27 @@
           <div class="sort-numbers flex flex-col gap-0.5">
             <label class="label-md" for="number">Números</label>
             <div class="border">
-              <input id="number" class="input-sort display-sm" />
+              <input id="number" class="input-sort display-sm" value="2" />
             </div>
           </div>
           <div class="sort-numbers flex flex-col gap-0.5">
             <label class="label-md" for="first-number">De</label>
             <div class="border">
-              <input id="first-number" class="input-sort display-sm" />
+              <input
+                id="first-number"
+                class="input-sort display-sm"
+                value="1"
+              />
             </div>
           </div>
           <div class="sort-numbers flex flex-col gap-0.5">
             <label class="label-md" for="secondary-number">Até</label>
             <div class="border">
-              <input id="secondary-number" class="input-sort display-sm" />
+              <input
+                id="secondary-number"
+                class="input-sort display-sm"
+                value="100"
+              />
             </div>
           </div>
         </div>
@@ -166,7 +174,7 @@
           <img src="./img/icons/arrow.svg" alt="" />
         </button>
       </div>
-      <div style="display: none;" class="result-container flex flex-col gap-2">
+      <div style="display: none" class="result-container flex flex-col gap-2">
         <div class="header-result">
           <h1 class="label-md">Resultado do sorteio</h1>
           <p class="overline">1º resultado</p>

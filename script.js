@@ -5,8 +5,38 @@ const secondNumber = document.getElementById("secondary-number");
 const checkedRepeatNumbers = document.getElementById("toggleRepeat");
 const divSort = document.querySelector('.aside-container');
 const divResult = document.querySelector('.result-container');
+const main = document.querySelector('.main');
+const tipsContainer = document.querySelector('.tips-container');
+const btnSort = document.querySelector('#btn-sorted');
+const btnResult = document.querySelector('#btn-result');
+
+const tipsOriginalParent = tipsContainer.parentElement;
+const tipsOriginalNext = tipsContainer.nextElementSibling;
+
+function reorganizarTips() {
 
 
+  if (window.innerWidth <= 768) {
+    if (divResult && getComputedStyle(divResult).display !== 'none') {
+      if (btnResult.nextElementSibling !== tipsContainer) {
+        btnResult.insertAdjacentElement('afterend', tipsContainer);
+      }
+    } else {
+      if (btnSort.nextElementSibling !== tipsContainer) {
+        btnSort.insertAdjacentElement('afterend', tipsContainer);
+      }
+    }
+  } else {
+    if (tipsOriginalNext) {
+      tipsOriginalParent.insertBefore(tipsContainer, tipsOriginalNext);
+    } else {
+      tipsOriginalParent.appendChild(tipsContainer);
+    }
+  }
+}
+
+window.addEventListener('resize', reorganizarTips);
+reorganizarTips();
 
 document.body.addEventListener('input', event => {
   if (event.target.classList.contains('input-sort')) {
@@ -92,6 +122,7 @@ document.body.addEventListener('click', event => {
       console.log("Números sorteados:", result);
       divSort.style.display = 'none';
       divResult.style.display = 'flex';
+      reorganizarTips();
 
       const container = document.querySelector('.numbers-result');
       container.innerHTML = "";
@@ -100,10 +131,10 @@ document.body.addEventListener('click', event => {
       result.forEach((num, index) => {
         const span = document.createElement('span');
         span.classList.add('number-box');
-        if ((index + 1) % 2 === 0) {
-          span.classList.add('animate-par');
+        if (index === 0) {
+          span.classList.add('animate-first');
         } else {
-          span.classList.add('animate-impar');
+          span.classList.add('animate-other');
         }
 
         span.style.animationDelay = `${animationDuration * index}ms`;
@@ -113,15 +144,29 @@ document.body.addEventListener('click', event => {
 
         if (index === 0) {
           setTimeout(() => {
-            span.textContent = num;
             span.style.opacity = 1;
-          }, 0);
+          }, 300);
         } else {
           setTimeout(() => {
-            span.textContent = num;
             span.style.opacity = 1;
-          }, animationDuration * index);
+          }, animationDuration * (index));
         }
+
+        if (index === 0) {
+          setTimeout(() => {
+            span.textContent = num;
+          }, 750);
+        } else {
+          setTimeout(() => {
+            span.textContent = num;;
+          }, animationDuration * index + 650);
+        }
+
+        const totalAnimationTime = animationDuration * result.length;
+
+        setTimeout(() => {
+          btnResult.classList.add('show');
+        }, totalAnimationTime);
       })
     }
   } catch (error) {
@@ -134,6 +179,8 @@ document.body.addEventListener('click', event => {
     if (event.target.closest('#btn-result')) {
       divSort.style.display = 'flex';
       divResult.style.display = 'none';
+      btnResult.classList.remove('show');
+      reorganizarTips();
       firstNumber.value = "";
       secondNumber.value = "";
       qtNumbers.value = "";

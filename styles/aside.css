@@ -26,7 +26,7 @@
       cursor: pointer;
     }
 
-    .border {
+    & .border {
       padding: 1px;
       border-radius: 8px;
       background: transparent;
@@ -116,6 +116,7 @@
     padding: 0.7rem 0.7rem;
     background: var(--background-tertiary);
     overflow: visible;
+    align-items: center;
 
     &::before {
       content: "";
@@ -212,5 +213,48 @@
   }
   100% {
     background: var(--background-tertiary);
+  }
+}
+
+@media (width <= 26.875em) {
+  .header-aside {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    & p {
+      font: 500 var(--paragraph-md) / 1.5 var(--font-family);
+    }
+  }
+
+  .sort {
+    width: 40%;
+  }
+  
+  .sort-numbers label {
+    max-width: 6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sort-numbers .border .input-sort {
+    width: 4rem;
+    height: 4rem;
+    background: var(--background-primary);
+    font-size: 1.6rem;
+  }
+
+  .sort-numbers:first-child .border {
+    max-width: 4.1rem;
+  }
+  .sort-numbers:first-child .input-sort {
+    max-width: 4rem;
+    width: 100%;
+  }
+
+  .sort-numbers:first-child label {
+    max-width: none;
+  }
+  .sort-numbers {
+    align-items: center;
   }
 }
