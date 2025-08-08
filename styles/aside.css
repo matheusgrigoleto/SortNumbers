@@ -115,19 +115,19 @@
     border-radius: 0.5rem;
     padding: 0.7rem 0.7rem;
     background: var(--background-tertiary);
-   
+    overflow: visible;
 
     &::before {
       content: "";
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
+      inset: -2px;
       border-radius: 0.5rem;
       background: var(--gradient-border);
       z-index: -1;
       opacity: 0;
+      transition: opacity 0.3s ease;
+      background-size: 200% 200%;
+      background-position: 0% 50%;
     }
 
     &:hover::before {
@@ -139,9 +139,9 @@
     }
 
     & span {
+      text-transform: uppercase;
       color: var(--content-primary);
     }
-
 
     &:hover {
       animation: flashBg 1.5s ease forwards;
@@ -149,18 +149,27 @@
   }
 }
 
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes flashBorder {
   0% {
     opacity: 0;
+    background-position: 0% 50%;
   }
-  10% {
-    opacity: 1;
-  }
+  10%,
   90% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+    background-position: 100% 50%;
   }
 }
 
@@ -190,7 +199,6 @@
     transform: translateX(0);
   }
 }
-
 
 @keyframes flashBg {
   0% {

@@ -10,7 +10,12 @@
 
   & .main {
     width: 80%;
-
+    & .overline {
+      background: var(--gradient-content);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     & .tips {
       width: 70%;
       & svg {

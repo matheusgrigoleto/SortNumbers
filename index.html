@@ -158,11 +158,27 @@
           <span class="toggle-label paragraph-md">Não repetir número</span>
         </label>
 
-        <button id="btn-sorted"
+        <button
+          id="btn-sorted"
           class="btn-sort flex gap-0.5 flex-aling-center flex-justify-center"
         >
           <span class="label-md">Sortear</span>
           <img src="./img/icons/arrow.svg" alt="" />
+        </button>
+      </div>
+      <div style="display: none;" class="result-container flex flex-col gap-2">
+        <div class="header-result">
+          <h1 class="label-md">Resultado do sorteio</h1>
+          <p class="overline">1º resultado</p>
+        </div>
+
+        <div class="numbers-result flex gap-2"></div>
+        <button
+          id="btn-result"
+          class="btn-sort flex gap-0.5 flex-aling-center flex-justify-center"
+        >
+          <span class="label-md">Sortear Novamente</span>
+          <img src="./img/icons/reload.svg" alt="" />
         </button>
       </div>
     </div>

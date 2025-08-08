@@ -3,6 +3,9 @@ const qtNumbers = document.getElementById("number");
 const firstNumber = document.getElementById("first-number");
 const secondNumber = document.getElementById("secondary-number");
 const checkedRepeatNumbers = document.getElementById("toggleRepeat");
+const divSort = document.querySelector('.aside-container');
+const divResult = document.querySelector('.result-container');
+
 
 
 document.body.addEventListener('input', event => {
@@ -47,7 +50,13 @@ document.body.addEventListener('click', event => {
       const firstNum = Number(firstNumber.value);
       const secondNum = Number(secondNumber.value);
       const quantity = Number(qtNumbers.value);
-      const allowRepetition = checkedRepeatNumbers.checked;
+      const noRepetition = checkedRepeatNumbers.checked;
+
+      if (secondNum < firstNum) {
+        alert("o número (ATÉ) tem que ser maior que o (DE).");
+        return;
+      }
+
       randomNumber(firstNum, secondNum, quantity);
       if (
         firstNumber.value.trim() === "" ||
@@ -62,8 +71,16 @@ document.body.addEventListener('click', event => {
       }
       const maxQuantity = Math.abs(secondNum - firstNum) + 1;
 
+      if (
+        (!checkedRepeatNumbers.checked && quantity > maxQuantity) ||
+        (checkedRepeatNumbers.checked && maxQuantity === 1 && quantity > 1)
+      ) {
+        alert(`Oops! Você pediu ${quantity} números, mas só há ${maxQuantity} disponíveis no intervalo.`);
+        return;
+      }
+
       let result;
-      if (allowRepetition) {
+      if (noRepetition) {
         result = randomNumber(firstNum, secondNum, quantity);
       } else {
         result = randomNumbersWithRepetition(firstNum, secondNum, quantity);
@@ -72,6 +89,54 @@ document.body.addEventListener('click', event => {
           return;
         }
       }
+      console.log("Números sorteados:", result);
+      divSort.style.display = 'none';
+      divResult.style.display = 'flex';
+
+      const container = document.querySelector('.numbers-result');
+      container.innerHTML = "";
+      const animationDuration = 3000;
+
+      result.forEach((num, index) => {
+        const span = document.createElement('span');
+        span.classList.add('number-box');
+        if ((index + 1) % 2 === 0) {
+          span.classList.add('animate-par');
+        } else {
+          span.classList.add('animate-impar');
+        }
+
+        span.style.animationDelay = `${animationDuration * index}ms`;
+        span.textContent = "";
+
+        container.appendChild(span);
+
+        if (index === 0) {
+          setTimeout(() => {
+            span.textContent = num;
+            span.style.opacity = 1;
+          }, 0);
+        } else {
+          setTimeout(() => {
+            span.textContent = num;
+            span.style.opacity = 1;
+          }, animationDuration * index);
+        }
+      })
+    }
+  } catch (error) {
+    console.error("Erro ao sortear números:", error);
+  }
+})
+
+document.body.addEventListener('click', event => {
+  try {
+    if (event.target.closest('#btn-result')) {
+      divSort.style.display = 'flex';
+      divResult.style.display = 'none';
+      firstNumber.value = "";
+      secondNumber.value = "";
+      qtNumbers.value = "";
     }
   } catch (error) {
     console.error("Erro ao sortear números:", error);

@@ -21,10 +21,6 @@
 .overline {
   font: 700 var(--paragraph-lg) / 1.5 var(--ff-overline);
   text-transform: uppercase;
-  background: var(--gradient-content);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .paragraph-lg {
